@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Saisir un mot :</label>
+    <input type="text" id="mot" />
+    <button id="btn">Valider</button>
+    <div id="resultat"></div>
+    <script>
+        const motSaisi = document.querySelector("#mot");
+        const buttonValider = document.querySelector("#btn");
+        const afficherResultat = document.querySelector("#resultat");            
+        
+        
+        function estPolidromeB(string){
+            let arrayStrB = string.split('');
+            let newArrayB = arrayStrB.slice().reverse();
+            for(let i = 0; i<newArrayB.length; i++){
+                if(newArrayB[i] !== arrayStrB[i]) return false;
+            }
+            return true;
+                
+        }     
+                
+        buttonValider.addEventListener("click", function(){
+            const string = motSaisi.value;
+            afficherResultat.innerHTML = string + " " + (estPolidromeB(string) ? "est" : "n'est pas " )+ " un polidrome" ;
+        })
+
+       
+
+    </script>
+</body>
+</html>
